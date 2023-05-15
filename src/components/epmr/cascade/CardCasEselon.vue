@@ -45,19 +45,9 @@
                 <td class="text-center">{{ title.indikator }}</td>
                 <td class="text-center">{{ title.target }}</td>
                 <td class="text-center">
-                  <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-warning">
-                      <i class="bi bi-pencil-square"></i>
-                    </button>
-                    <button
-                      type="button"
-                      class="btn btn-danger"
-                      id=""
-                      @click="hapuscaseselon"
-                    >
-                      <i class="bi bi-trash-fill"></i>
-                    </button>
-                  </div>
+                  <KTModalEditCasEselon
+                    modal-id="kt_modal_editcaseselon"
+                  ></KTModalEditCasEselon>
                 </td>
               </tr>
             </tbody>
@@ -121,6 +111,8 @@
     <!--end::Card body-->
   </div>
   <KTModalCasEselon></KTModalCasEselon>
+  <KTEditCasEselon></KTEditCasEselon>
+
   <!--end::Card-->
 </template>
   
@@ -132,6 +124,8 @@ import "vue-select/dist/vue-select.css";
 import KTModalComp from "@/components/epmr/cascade/ModalComp.vue";
 import KTModalCasEselon from "@/components/epmr/cascade/ModalCasEselon.vue";
 import Swal from "sweetalert2";
+import KTModalEditCasEselon from "@/components/epmr/cascade/modal_edit/edit_caseselon/ModalCompCasEselon.vue";
+import KTEditCasEselon from "@/components/epmr/cascade/modal_edit/edit_caseselon/EditCasEselon.vue";
 
 interface NewAddressData {
   tahun: string;
@@ -159,6 +153,8 @@ export default defineComponent({
     vSelect,
     KTModalComp,
     KTModalCasEselon,
+    KTModalEditCasEselon,
+    KTEditCasEselon,
   },
 
   setup() {

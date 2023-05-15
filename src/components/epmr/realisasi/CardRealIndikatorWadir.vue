@@ -37,19 +37,9 @@
               <td>96,32%</td>
               <td>-</td>
               <td>
-                <div class="btn-group" role="group">
-                  <button type="button" class="btn btn-warning">
-                    <i class="bi bi-pencil-square"></i>
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-danger"
-                    id=""
-                    @click="hapusrealindiwadir"
-                  >
-                    <i class="bi bi-trash-fill"></i>
-                  </button>
-                </div>
+                <KTModalCompWadir
+                  modal-id="kt_modal_editrealwadir"
+                ></KTModalCompWadir>
               </td>
             </tr>
             <tr>
@@ -66,19 +56,9 @@
               <td>WTP</td>
               <td>-</td>
               <td>
-                <div class="btn-group" role="group">
-                  <button type="button" class="btn btn-warning">
-                    <i class="bi bi-pencil-square"></i>
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-danger"
-                    id=""
-                    @click="hapusrealindiwadir"
-                  >
-                    <i class="bi bi-trash-fill"></i>
-                  </button>
-                </div>
+                <KTModalCompWadir
+                  modal-id="kt_modal_editrealwadir"
+                ></KTModalCompWadir>
               </td>
             </tr>
             <tr>
@@ -95,19 +75,9 @@
               <td>106,68%</td>
               <td>-</td>
               <td>
-                <div class="btn-group" role="group">
-                  <button type="button" class="btn btn-warning">
-                    <i class="bi bi-pencil-square"></i>
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-danger"
-                    id=""
-                    @click="hapusrealindiwadir"
-                  >
-                    <i class="bi bi-trash-fill"></i>
-                  </button>
-                </div>
+                <KTModalCompWadir
+                  modal-id="kt_modal_editrealwadir"
+                ></KTModalCompWadir>
               </td>
             </tr>
             <tr>
@@ -122,19 +92,9 @@
               <td>100,81%</td>
               <td>-</td>
               <td>
-                <div class="btn-group" role="group">
-                  <button type="button" class="btn btn-warning">
-                    <i class="bi bi-pencil-square"></i>
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-danger"
-                    id=""
-                    @click="hapusrealindiwadir"
-                  >
-                    <i class="bi bi-trash-fill"></i>
-                  </button>
-                </div>
+                <KTModalCompWadir
+                  modal-id="kt_modal_editrealwadir"
+                ></KTModalCompWadir>
               </td>
             </tr>
           </tbody>
@@ -199,6 +159,7 @@
     <!--end::Card body-->
   </div>
   <!--end::Card-->
+  <KTModalEditRealWadir></KTModalEditRealWadir>
 </template>
       
       <script lang="ts">
@@ -209,6 +170,8 @@ import vSelect from "vue-select";
 import "vue-select/dist/vue-select.css";
 import { getAssetPath } from "@/core/helpers/assets";
 import Swal from "sweetalert2";
+import KTModalEditRealWadir from "@/components/epmr/realisasi/modal_edit/edit_rewadir/EditRealWadir.vue";
+import KTModalCompWadir from "@/components/epmr/realisasi/modal_edit/edit_rewadir/ModalCompRealWadir.vue";
 
 export default defineComponent({
   methods: {
@@ -233,6 +196,8 @@ export default defineComponent({
     vSelect,
     Dropdown2,
     getAssetPath,
+    KTModalEditRealWadir,
+    KTModalCompWadir,
   },
   props: {
     className: { type: String, required: false },

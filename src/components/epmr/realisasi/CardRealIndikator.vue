@@ -36,19 +36,9 @@
               <td>95%</td>
               <td>-</td>
               <td>
-                <div class="btn-group" role="group">
-                  <button type="button" class="btn btn-warning">
-                    <i class="bi bi-pencil-square"></i>
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-danger"
-                    id=""
-                    @click="hapusrealindikator"
-                  >
-                    <i class="bi bi-trash-fill"></i>
-                  </button>
-                </div>
+                <KTModalCompDirektur
+                  modal-id="kt_modal_editrealdirektur"
+                ></KTModalCompDirektur>
               </td>
             </tr>
           </tbody>
@@ -113,6 +103,7 @@
     <!--end::Card body-->
   </div>
   <!--end::Card-->
+  <KTModalEditRealDirektur></KTModalEditRealDirektur>
 </template>
     
     <script lang="ts">
@@ -123,6 +114,8 @@ import vSelect from "vue-select";
 import "vue-select/dist/vue-select.css";
 import { getAssetPath } from "@/core/helpers/assets";
 import Swal from "sweetalert2";
+import KTModalEditRealDirektur from "@/components/epmr/realisasi/modal_edit/edit_redirektur/EditRealDirektur.vue";
+import KTModalCompDirektur from "@/components/epmr/realisasi/modal_edit/edit_redirektur/ModalCompRealDirektur.vue";
 
 export default defineComponent({
   methods: {
@@ -147,6 +140,8 @@ export default defineComponent({
     vSelect,
     Dropdown2,
     getAssetPath,
+    KTModalEditRealDirektur,
+    KTModalCompDirektur,
   },
   props: {
     className: { type: String, required: false },

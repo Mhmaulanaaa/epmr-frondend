@@ -93,19 +93,9 @@
                     <td>0,00%</td>
                     <td>-</td>
                     <td>
-                      <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-warning">
-                          <i class="bi bi-pencil-square"></i>
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-danger"
-                          id=""
-                          @click="hapusrealindeselon"
-                        >
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                      </div>
+                      <KTModalCompEselon
+                        modalId="kt_modal_editrealeselon"
+                      ></KTModalCompEselon>
                     </td>
                   </tr>
                   <tr>
@@ -120,19 +110,9 @@
                     <td>0,00%</td>
                     <td>-</td>
                     <td>
-                      <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-warning">
-                          <i class="bi bi-pencil-square"></i>
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-danger"
-                          id=""
-                          @click="hapusrealindeselon"
-                        >
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                      </div>
+                      <KTModalCompEselon
+                        modalId="kt_modal_editrealeselon"
+                      ></KTModalCompEselon>
                     </td>
                   </tr>
                   <tr>
@@ -150,19 +130,9 @@
                     <td>0,00%</td>
                     <td>-</td>
                     <td>
-                      <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-warning">
-                          <i class="bi bi-pencil-square"></i>
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-danger"
-                          id=""
-                          @click="hapusrealindeselon"
-                        >
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                      </div>
+                      <KTModalCompEselon
+                        modalId="kt_modal_editrealeselon"
+                      ></KTModalCompEselon>
                     </td>
                   </tr>
                   <tr>
@@ -180,19 +150,9 @@
                     <td>23,21%</td>
                     <td>-</td>
                     <td>
-                      <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-warning">
-                          <i class="bi bi-pencil-square"></i>
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-danger"
-                          id=""
-                          @click="hapusrealindeselon"
-                        >
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                      </div>
+                      <KTModalCompEselon
+                        modalId="kt_modal_editrealeselon"
+                      ></KTModalCompEselon>
                     </td>
                   </tr>
                   <tr>
@@ -209,19 +169,9 @@
                     <td>93,36%</td>
                     <td>-</td>
                     <td>
-                      <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-warning">
-                          <i class="bi bi-pencil-square"></i>
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-danger"
-                          id=""
-                          @click="hapusrealindeselon"
-                        >
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                      </div>
+                      <KTModalCompEselon
+                        modalId="kt_modal_editrealeselon"
+                      ></KTModalCompEselon>
                     </td>
                   </tr>
                 </tbody>
@@ -418,6 +368,7 @@
     <!--end::Card body-->
   </div>
   <!--end::Card-->
+  <KTModalEditRealEselon></KTModalEditRealEselon>
 </template>
         
         <script lang="ts">
@@ -428,6 +379,8 @@ import vSelect from "vue-select";
 import "vue-select/dist/vue-select.css";
 import { getAssetPath } from "@/core/helpers/assets";
 import Swal from "sweetalert2";
+import KTModalEditRealEselon from "@/components/epmr/realisasi/modal_edit/edit_reeselon/EditRealEselon.vue";
+import KTModalCompEselon from "@/components/epmr/realisasi/modal_edit/edit_reeselon/ModalCompRealEselon.vue";
 
 export default defineComponent({
   methods: {
@@ -452,6 +405,8 @@ export default defineComponent({
     vSelect,
     Dropdown2,
     getAssetPath,
+    KTModalEditRealEselon,
+    KTModalCompEselon,
   },
   props: {
     className: { type: String, required: false },

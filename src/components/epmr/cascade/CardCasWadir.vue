@@ -45,19 +45,9 @@
                 <td class="text-center">{{ title.indikator }}</td>
                 <td class="text-center">{{ title.target }}</td>
                 <td class="text-center">
-                  <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-warning">
-                      <i class="bi bi-pencil-square"></i>
-                    </button>
-                    <button
-                      type="button"
-                      class="btn btn-danger"
-                      id=""
-                      @click="hapuscaswadir"
-                    >
-                      <i class="bi bi-trash-fill"></i>
-                    </button>
-                  </div>
+                  <KTModalEditCasWadir
+                    modalId="kt_modal_editcascadewadir"
+                  ></KTModalEditCasWadir>
                 </td>
               </tr>
             </tbody>
@@ -122,6 +112,7 @@
   </div>
   <KTModalCasWadir></KTModalCasWadir>
   <!--end::Card-->
+  <KTEditCasWadir></KTEditCasWadir>
 </template>
   
   <script lang="ts">
@@ -132,6 +123,8 @@ import "vue-select/dist/vue-select.css";
 import KTModalComp from "@/components/epmr/cascade/ModalComp.vue";
 import KTModalCasWadir from "@/components/epmr/cascade/ModalCasWadir.vue";
 import Swal from "sweetalert2";
+import KTModalEditCasWadir from "@/components/epmr/cascade/modal_edit/edit_caswadir/ModalCompCasWadir.vue";
+import KTEditCasWadir from "@/components/epmr/cascade/modal_edit/edit_caswadir/EditCasWadir.vue";
 
 interface NewAddressData {
   tahun: string;
@@ -159,6 +152,8 @@ export default defineComponent({
     vSelect,
     KTModalComp,
     KTModalCasWadir,
+    KTModalEditCasWadir,
+    KTEditCasWadir,
   },
 
   setup() {

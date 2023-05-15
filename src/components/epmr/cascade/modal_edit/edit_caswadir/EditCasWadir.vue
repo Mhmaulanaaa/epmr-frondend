@@ -2,8 +2,8 @@
   <!--begin::Modal - New Target-->
   <div
     class="modal fade"
-    id="kt_modal_editsatuanmaster"
-    ref="newModalEditSatuanMaster"
+    id="kt_modal_editcascadewadir"
+    ref="newModalEditCascadeWadir"
     tabindex="-1"
     aria-hidden="true"
   >
@@ -13,7 +13,7 @@
       <div class="modal-content">
         <!--begin::Modal header-->
         <div class="modal-header">
-          <h3>Edit Satuan</h3>
+          <h3>Edit Cascade Wakil Direktur</h3>
 
           <!--begin::Close-->
           <div
@@ -92,7 +92,7 @@
           </div>
           <!--end::Notice-->
           <el-form
-            id="kt_modal_editsatuanmaster_form"
+            id="kt_modal_editcascadewadir_form"
             @submit.prevent="submit()"
             :model="targetData"
             ref="formRef"
@@ -100,50 +100,57 @@
           >
             <!--begin::Input group-->
             <br />
-            <div class="d-flex flex-column mb-5 fv-row">
-              <!--begin::Label-->
-              <label class="d-flex align-items-center fs-6 fw-semobold mb-2">
-                <span class="required">Kode</span>
-              </label>
-              <!--end::Label-->
-
-              <el-form-item prop="targetTitle">
-                <el-input
-                  v-model="targetData.targetTitle"
-                  placeholder="S20230101001"
-                  disabled=""
-                  name="targetTitle"
-                ></el-input>
-              </el-form-item>
-            </div>
-            <!--end::Input group-->
-
-            <!--begin::Col-->
             <div class="col-12">
-              <label class="fs-6 fw-semobold mb-2">Satuan</label>
+              <label class="fs-6 fw-semobold mb-2">Jabatan</label>
               <div>
                 <v-select
-                  :options="satuan"
-                  label="select2_satuan"
-                  placeholder="Pilih Satuan"
+                  :options="pilihjabatan"
+                  label="select2_pilihjabatan"
+                  placeholder="Pilih Jabatan"
                 ></v-select>
               </div>
             </div>
             <br />
-            <!--end::Col-->
+            <!--end::Input group-->
+
+            <div class="col-12">
+              <label class="fs-6 fw-semobold mb-2">Sasaran</label>
+              <div>
+                <v-select
+                  :options="pilihsasaran"
+                  label="select2_pilihsasaran"
+                  placeholder="Pilih Sasaran"
+                ></v-select>
+              </div>
+            </div>
+            <br />
+            <!--end::Input group-->
+
+            <div class="col-12">
+              <label class="fs-6 fw-semobold mb-2">Indikator</label>
+              <div>
+                <v-select
+                  :options="pilihindikator"
+                  label="select2_pilihindikator"
+                  placeholder="Pilih Indikator"
+                ></v-select>
+              </div>
+            </div>
+            <br />
+            <!--end::Input group-->
 
             <div class="d-flex flex-column mb-5 fv-row">
               <!--begin::Label-->
               <label class="d-flex align-items-center fs-6 fw-semobold mb-2">
-                <span class="required">Singkatan Satuan</span>
+                <span class="required">Target</span>
               </label>
               <!--end::Label-->
 
-              <el-form-item prop="targetSatuan">
+              <el-form-item prop="targetTarget">
                 <el-input
-                  v-model="targetData.targetSatuan"
-                  placeholder="Masukkan Singkatan Satuan"
-                  name="targetSatuan"
+                  v-model="targetData.targetTarget"
+                  placeholder="Masukkan Target"
+                  name="targetTarget"
                 ></el-input>
               </el-form-item>
             </div>
@@ -205,7 +212,7 @@
             <div class="float-end">
               <button
                 type="reset"
-                id="kt_modal_editsatuanmaster_cancel"
+                id="kt_modal_editcascadewadir_cancel"
                 class="btn btn-light me-3"
               >
                 Tutup
@@ -242,8 +249,8 @@
   </div>
   <!--end::Modal - New Target-->
 </template>
-          
-          <style lang="scss">
+            
+            <style lang="scss">
 .el-select {
   width: 100%;
 }
@@ -253,8 +260,8 @@
   width: 100%;
 }
 </style>
-          
-          <script lang="ts">
+            
+            <script lang="ts">
 import { getAssetPath } from "@/core/helpers/assets";
 import { defineComponent, ref } from "vue";
 import { hideModal } from "@/core/helpers/dom";
@@ -263,8 +270,11 @@ import vSelect from "vue-select";
 import "vue-select/dist/vue-select.css";
 
 interface NewAddressData {
+  pilihjabatan: string;
+  pilihsasaran: string;
+  pilihindikator: string;
   targetTitle: string;
-  targetSatuan: string;
+  targetTarget: string;
   assign: string;
   dueDate: string;
   targetDetails: string;
@@ -278,12 +288,15 @@ export default defineComponent({
   },
   setup() {
     const formRef = ref<null | HTMLFormElement>(null);
-    const newModalEditSatuanMaster = ref<null | HTMLElement>(null);
+    const newModalEditCascadeWadir = ref<null | HTMLElement>(null);
     const loading = ref<boolean>(false);
 
     const targetData = ref<NewAddressData>({
       targetTitle: "",
-      targetSatuan: "",
+      targetTarget: "",
+      pilihjabatan: "",
+      pilihsasaran: "",
+      pilihindikator: "",
       assign: "",
       dueDate: "",
       targetDetails: "",
@@ -343,7 +356,7 @@ export default defineComponent({
                 confirmButton: "btn btn-primary",
               },
             }).then(() => {
-              hideModal(newModalEditSatuanMaster.value);
+              hideModal(newModalEditCascadeWadir.value);
             });
           }, 2000);
         } else {
@@ -368,18 +381,54 @@ export default defineComponent({
       loading,
       formRef,
       //   rules,
-      newModalEditSatuanMaster,
+      newModalEditCascadeWadir,
       getAssetPath,
-      satuan: [{ select2_satuan: "Dokumen" }, { select2_satuan: "Laporan" }],
+      pilihjabatan: [
+        { select2_pilihjabatan: "Wakil Direktur Perencanaan dan Keuangan" },
+      ],
+      pilihsasaran: [
+        {
+          select2_pilihsasaran:
+            "Meningkatnya kemandirian dan akuntabilitas rumah sakit",
+        },
+      ],
+      pilihindikator: [
+        {
+          select2_pilihindikator:
+            "Persentase capaian elemen akreditasi sesuai standar di jajaran Perencanaan dan Keuangan",
+        },
+        {
+          select2_pilihindikator:
+            "Persentase kesesuaian akuntabilitas kinerja terhadap standar",
+        },
+        {
+          select2_pilihindikator: "IKM di jajaran Perencanaan dan Keuangan",
+        },
+        {
+          select2_pilihindikator:
+            "Persentase pegawai jajaran Perencanaan dan Keuangan yang memahami nilai organisasi",
+        },
+        {
+          select2_pilihindikator:
+            "Persentase realisasi anggaran jajaran Perencanaan dan Keuangan",
+        },
+        {
+          select2_pilihindikator:
+            "Capaian opini pemeriksa eksternal terhadap RS sebagai entitas PPK BLUD",
+        },
+        {
+          select2_pilihindikator: "Persentase capaian tingkat kemandirian",
+        },
+      ],
     };
   },
 });
 </script>
-          
-          <style lang="scss">
+            
+            <style lang="scss">
 .override-styles {
   z-index: 99999 !important;
   pointer-events: initial;
 }
 </style>
-          
+            

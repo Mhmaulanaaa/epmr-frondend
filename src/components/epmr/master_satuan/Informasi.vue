@@ -35,27 +35,8 @@
                   <td class="text-center">{{ title.singkatan }}</td>
                   <td class="text-center">{{ title.status }}</td>
                   <td class="text-center">
-                    <div class="btn-group" role="group" aria-label="bmse">
-                      <button
-                        id="btn-edit"
-                        class="btn btn-sm btn-warning fs-8"
-                        data-bs-toggle="modal"
-                        data-bs-target="#"
-                        @click.prevent=""
-                      >
-                        <i class="bi bi-pencil-square"></i>
-                      </button>
-                      <button
-                        @click="hapusinfosatuan"
-                        id="btn-hapus"
-                        class="btn btn-sm btn-danger fs-8"
-                        data-bs-toggle="modal"
-                        data-bs-target="#"
-                        @click.prevent=""
-                      >
-                        <i class="bi bi-trash-fill"></i>
-                      </button>
-                    </div>
+                    <KTModalComp modal-id="kt_modal_editsatuanmaster">
+                    </KTModalComp>
                   </td>
                 </tr>
               </tbody>
@@ -118,6 +99,7 @@
       </div>
     </div>
   </section>
+  <KTEditSatuan></KTEditSatuan>
 </template>
     
     <style></style>
@@ -125,6 +107,8 @@
 import { reactive, ref, watch } from "vue";
 import { Search } from "@element-plus/icons-vue";
 import Swal from "sweetalert2";
+import KTEditSatuan from "@/components/epmr/master_satuan/modal_edit/edit_satuan/EditSatuan.vue";
+import KTModalComp from "@/components/epmr/master_satuan/modal_edit/edit_satuan/ModalCompSatuan.vue";
 
 const tableHead = ref([
   {

@@ -45,19 +45,9 @@
                 <td class="text-center">{{ title.indikator }}</td>
                 <td class="text-center">{{ title.target }}</td>
                 <td class="text-center">
-                  <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-warning">
-                      <i class="bi bi-pencil-square"></i>
-                    </button>
-                    <button
-                      type="button"
-                      class="btn btn-danger"
-                      id=""
-                      @click="hapuscasdirektur"
-                    >
-                      <i class="bi bi-trash-fill"></i>
-                    </button>
-                  </div>
+                  <KTModalCompDirektur
+                    modalId="kt_modal_editcascadedirektur"
+                  ></KTModalCompDirektur>
                 </td>
               </tr>
             </tbody>
@@ -121,6 +111,7 @@
     <!--end::Card body-->
   </div>
   <KTModalCasDirek></KTModalCasDirek>
+  <KTModalEditCasDirektur></KTModalEditCasDirektur>
   <!--end::Card-->
 </template>
   
@@ -131,6 +122,8 @@ import vSelect from "vue-select";
 import "vue-select/dist/vue-select.css";
 import KTModalComp from "@/components/epmr/cascade/ModalComp.vue";
 import KTModalCasDirek from "@/components/epmr/cascade/ModalCasDirek.vue";
+import KTModalEditCasDirektur from "@/components/epmr/cascade/modal_edit/edit_casdirektur/EditCasDirektur.vue";
+import KTModalCompDirektur from "@/components/epmr/cascade/modal_edit/edit_casdirektur/ModalCompCasDirektur.vue";
 import Swal from "sweetalert2";
 
 interface NewAddressData {
@@ -159,6 +152,8 @@ export default defineComponent({
     vSelect,
     KTModalComp,
     KTModalCasDirek,
+    KTModalCompDirektur,
+    KTModalEditCasDirektur,
   },
 
   setup() {
